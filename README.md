@@ -23,3 +23,6 @@ escrito por Martin Fowler e outros autores.
 
 - Tente ler o código como se fosse um texto qualquer de um livro. Caso essa leitura não esteja fluindo como se fosse um livro,
   identifique o porquê, lá é onde você precisa refatorar.
+
+- A ideia central é pegar o ritmo da refatoração: teste, pequena mudança, teste, pequena mudança, teste e assim por diante.
+  Esse é o ritmo que te permite mover de forma rápida e, sobretudo, mais segura.
