@@ -6,6 +6,7 @@ escrito por Martin Fowler e outros autores.
 ## Tabela de conteúdo
 
 1. [Refactoring, a first example](#refactoring-a-first-example)
+2. [Principles in Refactoring](#principles-in-refactoring)
 
 ### Refactoring, a first example
 
