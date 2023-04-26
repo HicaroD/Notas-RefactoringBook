@@ -7,6 +7,7 @@ escrito por Martin Fowler e outros autores.
 
 1. [Refactoring, a first example](#refactoring-a-first-example)
 2. [Principles in Refactoring](#principles-in-refactoring)
+3. [Bad Smells in Code](#bad-smells-in-code)
 
 ### Refactoring, a first example
 
@@ -62,3 +63,5 @@ escrito por Martin Fowler e outros autores.
   que melhorar o código que já temos irá melhorar a qualidade do código futuro.
 
 - Existem códigos que são tão ruins que seria melhor reescrevê-lo do que refatorá-lo.
+
+### Bad Smells in Code
