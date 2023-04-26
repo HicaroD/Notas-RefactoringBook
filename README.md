@@ -65,3 +65,30 @@ escrito por Martin Fowler e outros autores.
 - Existem códigos que são tão ruins que seria melhor reescrevê-lo do que refatorá-lo.
 
 ### Bad Smells in Code
+
+#### Duplicated code
+
+- Se você ver a mesma estrutura de código em mais de um lugar diferente, tenha certeza de que o seu programa será 
+  melhor caso você ache uma maneira de unificá-la.
+
+- Uma das maneiras mais simples de conseguir resolver esse problema do código duplicado é extrair a parte 
+  duplicada em um método e chamar esse método nos lugares que aquela estrutura é repetida.
+
+#### Long method
+
+- Aqueles programas que tendem a viver mais e bem são aqueles com métodos pequenos.
+
+- Quanto maior o método, mais difícil de entender.
+
+- Para extrair métodos longos, podemos extrair o método em submétodos para fazer diferentes etapas do método.
+
+- Geralmente comentários te dão indícios de que um código deve ser refatorado. Isso porque geralmente o comentário
+  tenta dar uma semântica a determinados blocos de código. Então, uma coisa que você poderia fazer é tornar aquele
+  bloco de código comentado em uma função com um bom nome que denota a semântica / sentido que o comentário
+  tentou passar.
+
+- Loops e expressões condicionais também dão indícios de que aquilo deve ser extraido. Expressões condicionais
+  podem ser extraidas em um método a parte e o método deve ter um nome do que aquela expressão condicional está
+  checando, e a parte interna de um loop pode ser extraida em seu próprio método.
+
+#### Large class
