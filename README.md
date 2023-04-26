@@ -1,7 +1,12 @@
 # Refactoring notes
 
-Esse documento será útil para armazenar minhas notas a respeito do livro "Refactoring: Improving the Design of Existing Code"
-escrito por Martin Fowler e outros autores.
+Esse documento será útil para armazenar minhas notas a respeito do livro "Refactoring: Improving the Design of Existing Code" escrito por Martin Fowler e outros autores.
+
+Além disso, irei consultar sempre que quiser refatorar / fazer code reviews e etc.
+
+Deixarei apenas um aviso, muitas dessas notas não são 100% inspiradas no livro do Martin Fowler. Em algumas delas, eu
+faço comentários adicionados baseado em experiência própria e outros livros que li sobre o tópico. Dessa maneira,
+**caso queira usar essas notas para tomar como referência de algo, use por sua conta e risco**.
 
 ## Tabela de conteúdo
 
