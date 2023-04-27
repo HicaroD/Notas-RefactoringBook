@@ -97,3 +97,29 @@ faço comentários adicionados baseado em experiência própria e outros livros 
   checando, e a parte interna de um loop pode ser extraida em seu próprio método.
 
 #### Large class
+
+- Um indício de que uma classe está fazendo coisa demais é uma grande quantidade de atributos. Esse problema
+  vai tornar a classe grande demais, código duplicado estará presente, muitas vezes, e dentre outros problemas.
+
+- Uma das soluções para tornar classes menores é fazer algo semelhante ao que fazemos com funções: extrair em outras
+  classes onde cada uma terá um papel na classe maior.
+  Muitas vezes um indício de que podemos extrair alguns atributos são os nomes que damos a esses atributos. Ex.:
+  
+  - "depositAmount" e "depositCurrency", esse prefixo "deposit" pode ser um indício de que deveríamos criar uma
+    classe chamada "Deposit" e dentro dela teríamos "amount" e "currency".
+
+#### Long Parameter List
+
+- Antigamente, você era instigado a passar muitos parâmetros para funções porque isso ajudaria a evitar variáveis
+  globais. Variáveis globais são ruins e geralmente a maior causadora de bugs, especialmente se você está lidando
+  com múltiplas threads acessando o mesmo valor no escopo global.
+
+  Hoje em dia, temos outras visões a respeito da lista de parâmetros. Quanto menos, melhor!
+  Uma lista longa de parâmetros tornam o código difícil de entender.
+
+  // TODO: aprender como resolver esse problema da lista longa de parâmetros
+
+#### Divergent Change
+
+- Se sua classe muda por mais de uma razão, extraia-a em outras classes. Uma classe deve ter apenas uma razão para
+  mudar. CADA CLASSE DEVE POSSUIR APENAS UMA RESPONSABILIDADE.
