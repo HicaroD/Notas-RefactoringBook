@@ -18,7 +18,9 @@ faço comentários adicionados baseado em experiência própria e outros livros 
    3.2. [Long method](#long-method)
    3.3. [Large class](#large-class)
    3.4. [Long parameter list](#long-parameter-list)
-   3.4. [Divergent change](#divergent-change)
+   3.5. [Divergent change](#divergent-change)
+   3.6. [Shotgun surgery](#shotgun-surgery)
+   3.7. [Feature Envy](#shotgun-surgery)
 
 ### Refactoring, a first example
 
@@ -129,3 +131,27 @@ faço comentários adicionados baseado em experiência própria e outros livros 
 
 - Se sua classe muda por mais de uma razão, extraia-a em outras classes. Uma classe deve ter apenas uma razão para
   mudar. CADA CLASSE DEVE POSSUIR APENAS UMA RESPONSABILIDADE.
+
+- Quando uma classe muda de forma diferentes por diferentes razões, nós chamamos isso de
+  alteração divergente (divergent change)
+
+#### Shotgun surgery
+
+- Esse tipo de code smell é bem semelhante ao [anterior](#divergent-change), mas é o oposto. Quando precisamos fazer alguma alteração e, para isso, faz-se necessário fazer pequenas mudanças em diversas classes diferentes. Isso é um problema, na medida em que, caso as alterações estejam em todos os lugares, fica difícil de encontrar o problema e é simples de você se perder e esquecer alguma alteração importante.
+
+- Nesse caso, precisaremos mover os métodos e os campos para uma classe só para evitar que
+  as mudanças sejam feitas em diferentes classes. As mudanças estarão concentradas em uma classe.
+
+- Caso nenhuma classe pareça ser uma boa candidata para receber os novos métodos e campos, então crie uma nova.
+
+- Alteração divergente é uma classe que sofre diversas alterações por razões diferentes, já shotgun surgery são várias classes que recebem várias alterações.
+
+#### Feature Envy
+
+- A ideia de termos objetos é de reunir dados com métodos que possam operar nesses dados. Tomando isso como referência, existe um code smell onde existem métodos em certas classes que estão mais interessados nos dados de outras classes do que da sua própria classe.
+
+- Por isso é chamado de "feature envy" (funcionalidade invejosa), na medida em que o método "inveja" os dados de outra classe.
+
+- Podemos identificar um "feature envy" ao observar que um método invoca um monte de métodos de outras classes para calcular algum valor. Isso é uma "feature envy". Já que esse método quer tanto invocar os dados de outra classe, então é melhor deslocar esse método para essa classe, ele estará melhor lá dentro.
+
+- Esse problema pode ser facilmente resolvido movendo o método para essa classe que ele está "invejando" os dados. Claro que nem sempre essa solução irá funcionar, pois ele pode estar "invejando" os dados de diversas classes, mas certos casos podem ser refatorados dessa maneira.
