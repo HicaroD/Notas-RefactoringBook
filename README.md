@@ -14,6 +14,12 @@ faço comentários adicionados baseado em experiência própria e outros livros 
 2. [Principles in Refactoring](#principles-in-refactoring)
 3. [Bad Smells in Code](#bad-smells-in-code)
 
+   3.1. [Duplicated code](#duplicated-code)
+   3.2. [Long method](#long-method)
+   3.3. [Large class](#large-class)
+   3.4. [Long parameter list](#long-parameter-list)
+   3.4. [Divergent change](#divergent-change)
+
 ### Refactoring, a first example
 
 - Um computador não se importa com código sujo, mas humanos, sim! Nós escrevemos códigos para seres humanos.
@@ -73,10 +79,10 @@ faço comentários adicionados baseado em experiência própria e outros livros 
 
 #### Duplicated code
 
-- Se você ver a mesma estrutura de código em mais de um lugar diferente, tenha certeza de que o seu programa será 
+- Se você ver a mesma estrutura de código em mais de um lugar diferente, tenha certeza de que o seu programa será
   melhor caso você ache uma maneira de unificá-la.
 
-- Uma das maneiras mais simples de conseguir resolver esse problema do código duplicado é extrair a parte 
+- Uma das maneiras mais simples de conseguir resolver esse problema do código duplicado é extrair a parte
   duplicada em um método e chamar esse método nos lugares que aquela estrutura é repetida.
 
 #### Long method
@@ -104,7 +110,7 @@ faço comentários adicionados baseado em experiência própria e outros livros 
 - Uma das soluções para tornar classes menores é fazer algo semelhante ao que fazemos com funções: extrair em outras
   classes onde cada uma terá um papel na classe maior.
   Muitas vezes um indício de que podemos extrair alguns atributos são os nomes que damos a esses atributos. Ex.:
-  
+
   - "depositAmount" e "depositCurrency", esse prefixo "deposit" pode ser um indício de que deveríamos criar uma
     classe chamada "Deposit" e dentro dela teríamos "amount" e "currency".
 
