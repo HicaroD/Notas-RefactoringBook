@@ -104,6 +104,16 @@ faço comentários adicionados baseado em experiência própria e outros livros 
   podem ser extraidas em um método a parte e o método deve ter um nome do que aquela expressão condicional está
   checando, e a parte interna de um loop pode ser extraida em seu próprio método.
 
+- Muitas situações quando extraímos métodos para refatorar nosso código, a gente acaba passando
+  muitos parâmetros e variáveis temporárias para poder atingir nossos objetivos. Ter muitos parâmetros e muitas variáveis temporárias não é algo legal.
+
+  Dessa forma, para retirar algumas (ou até todas) variáveis temporárias, podemos usar **"Replace Temp with Query"**, ou seja, ao invés de usar uma variável temporária para armazenar algum valor temporário, podemos criar um método que calcula esse valor temporário e passar lá ao invés da variável.
+
+  Quando temos uma lista longa de parâmetros, podemos resolver com **"Introduce Parameter Object"**, ou seja, se a lista de parâmetros tiver uma certa semântica, podemos criar uma classe onde cada campo da classe será um elemento da lista de parâmetro, só assim teremos bem menos parâmetros e um objeto parametral conciso e simples. Além disso, também podemos usar **"Preserve Whole Object"**, ou seja, você obtem diversos valores de um objeto e passa
+  esses valores como parâmetros (isso aumenta o número de parâmetros), para evitar isso, é melhor passar o objeto inteiro.
+
+- Existem situações onde você tem duas classes com a mesma expressão. Para resolver isso, você pode criar uma classe maior que possui essa expressão e herda essa classe para as outras, só assim ambas terão as mesmas fields e você não precisará gerenciar as duas ao mesmo tempo, já que são expressões iguais.
+
 #### Large class
 
 - Um indício de que uma classe está fazendo coisa demais é uma grande quantidade de atributos. Esse problema
