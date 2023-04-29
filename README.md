@@ -15,11 +15,17 @@ faço comentários adicionados baseado em experiência própria e outros livros 
 3. [Bad Smells in Code](#bad-smells-in-code)
 
    3.1. [Duplicated code](#duplicated-code)
+
    3.2. [Long method](#long-method)
+
    3.3. [Large class](#large-class)
+
    3.4. [Long parameter list](#long-parameter-list)
+
    3.5. [Divergent change](#divergent-change)
+
    3.6. [Shotgun surgery](#shotgun-surgery)
+
    3.7. [Feature Envy](#shotgun-surgery)
 
 ### Refactoring, a first example
@@ -134,8 +140,6 @@ faço comentários adicionados baseado em experiência própria e outros livros 
 
   Hoje em dia, temos outras visões a respeito da lista de parâmetros. Quanto menos, melhor!
   Uma lista longa de parâmetros tornam o código difícil de entender.
-
-  // TODO: aprender como resolver esse problema da lista longa de parâmetros
 
 #### Divergent Change
 
