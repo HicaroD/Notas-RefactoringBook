@@ -28,6 +28,12 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 
    3.7. [Feature Envy](#shotgun-surgery)
 
+   3.8. [Data clumps](#data-clumps)
+
+   3.9. [Primitive obsession](#primitive-obsession)
+
+   3.10. [Switch statements](#switch-statements)
+
 ### Refactoring, a first example
 
 - Um computador não se importa com código sujo, mas humanos, sim! Nós escrevemos códigos para seres humanos.
@@ -169,3 +175,87 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 - Podemos identificar um "feature envy" ao observar que um método invoca um monte de métodos de outras classes para calcular algum valor. Isso é uma "feature envy". Já que esse método quer tanto invocar os dados de outra classe, então é melhor deslocar esse método para essa classe, ele estará melhor lá dentro.
 
 - Esse problema pode ser facilmente resolvido movendo o método para essa classe que ele está "invejando" os dados. Claro que nem sempre essa solução irá funcionar, pois ele pode estar "invejando" os dados de diversas classes, mas certos casos podem ser refatorados dessa maneira.
+
+#### Data clumps
+
+- Muitas vezes você verá campos muito semelhantes andando juntos em diferentes classes. Para resolver esse problema,
+  você pode extrair esses campos em uma classe nova, já que eles sempre andam juntos.
+
+#### Primitive obsession
+
+- Geralmente, em ambientes de programação, temos dois tipos de dados: Record e Primitives. Dados do tipo Record permitem
+  que você estruture outros dados em grupos que possuem significado. Dados do tipo Primitives são "building blocks"
+  para construção de dados do tipo "Record".
+
+- Pessoas que são novas no mundo dos objetos ficam com receio de usar classes para poder resolver pequenas tarefas,
+  como criar uma classe para representar um "Customer" que terá apenas o nome dele lá.
+
+  Pensar dessa maneira não é algo tão bom, pois criar uma classe para representar esses objetos dão uma certa semântica
+  e isolamos os dados específicos daquele objeto dentro de uma classe que dá sentido ao código.
+
+- Se você tem grupos de campos que sempre vão juntos, extraia em uma classe nova.
+
+- Se você tem tipos primitivos na lista de parâmetros, tente usar **Introduce Parameter Object**, ou seja, criar uma
+  classe que possui os parâmetros como campos da classe. Só assim, diminuiríamos a quantidade de parâmetros e melhoraríamos a legibilidade do código.
+
+- Se você se encontra usando um array para armazenar dados que juntos fazem sentido, você poderia usar **Replace Array with Object**, ou seja, criar uma classe para representar o que o conteúdo dentro do array significa.
+
+#### Switch statements
+
+- Já não é novidade para ninguém que, para muitos autores, como Martin Fowler e Bob Martin, switch statements não é uma boa ideia, na maioria dos casos. Tomando como referência o Martin Fowler, o maior problema dos switch statements é a duplicação de código, na medida em que você se vê colocando aquele switch statement em diversos locais do código.
+
+- Sempre que você ver em um switch statement, pense em polimorfismo. Polimorfismo no mundo das linguagens orientadas a objetos é a solução para elimininação dos switch statements. Muitas vezes você faz switch no tipo da classe para fazer determinada tarefa, mas isso é desnecessário quando temos polimorfismo.
+
+- Para resolver esse problema, vejamos um exemplo em Java de como o autor Martin Fowler recomenda a resolução desse problema. Para resolver isso, usamos a técnica **Replace Conditional with Polymorphism**.
+
+  Antes:
+
+  ```java
+  class Bird {
+    // ...
+    double getSpeed() {
+      switch (type) {
+        case EUROPEAN:
+          return getBaseSpeed();
+        case AFRICAN:
+          return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
+        case NORWEGIAN_BLUE:
+          return (isNailed) ? 0 : getBaseSpeed(voltage);
+      }
+      throw new RuntimeException("Should be unreachable");
+    }
+  }
+  ```
+
+  Depois:
+
+  ```java
+  abstract class Bird {
+    // ...
+    abstract double getSpeed();
+  }
+
+  class European extends Bird {
+    double getSpeed() {
+      return getBaseSpeed();
+    }
+  }
+  class African extends Bird {
+    double getSpeed() {
+      return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
+    }
+  }
+  class NorwegianBlue extends Bird {
+    double getSpeed() {
+      return (isNailed) ? 0 : getBaseSpeed(voltage);
+    }
+  }
+
+  // Somewhere in client code
+  speed = bird.getSpeed();
+  ```
+
+  Com esse tipo de solução, não existe a necessidade da gente ficar alterando sempre o switch case, na medida em que **não existe mais um switch case**. Caso a gente criar um novo tipo de passáro, basta criar uma nova classe que `extends` de `Bird` e implementar o método `getSpeed`. Nossas alterações estão concentradas em apenas um local.
+
+  Essa solução pode ser overkill, caso você tenha um código que você não espera mudar com frequência e o seu switch case
+  possui pouquíssimos casos.
