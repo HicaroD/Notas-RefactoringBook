@@ -34,6 +34,14 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 
    3.10. [Switch statements](#switch-statements)
 
+   3.11. [Parallel Inheritance Hierarchies](#parallel-inheritance-hierarchies)
+
+   3.12. [Lazy class](#lazy-class)
+
+   3.13. [Speculative Generality](#speculative-generality)
+
+   3.14. [Temporary field](#temporary-field)
+
 ### Refactoring, a first example
 
 - Um computador não se importa com código sujo, mas humanos, sim! Nós escrevemos códigos para seres humanos.
@@ -259,3 +267,28 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 
   Essa solução pode ser overkill, caso você tenha um código que você não espera mudar com frequência e o seu switch case
   possui pouquíssimos casos.
+
+#### Parallel Inheritance Hierarchies
+
+- Todas as vezes que você cria uma subclasse de uma classe, você precisará criar uma subclasse de outra. Para remover
+  esse problema, você usa **Move Method** e **Move Field**.
+
+#### Lazy class
+
+- Cada classe que você cria custa dinheiro e tempo de manutenção e de entendimento. Dessa maneira, uma classe que não faz
+  o suficiente para ser digna ser de uma classe a parte deve ser eliminada.
+
+#### Speculative Generality
+
+- Existem situações onde você pensa "eita, podemos criar x classe para poder fazer y coisa no futuro". Isso acaba
+  adicionando uma complexidade ao código totalmente desnecessária no momento. O problema dessa complexidade é que ela
+  não está sendo usada, ela foi criada para algo que pode ou não vir à tona no futuro.
+
+- Se você se ver na situação onde você criou métodos, classes e etc que estão sendo apenas usadas pelos casos de testes
+  e não pelo cliente real, então você deve remover isso, na medida em que ninguém usa.
+
+#### Temporary field
+
+- Quando temos uma classe que possui campos temporários que eles são setados e usados em certas situações tornam tudo
+  mais difícil de entender. Para resolver esse problema, pegamos todos esses campos temporários e jogamos em uma classe
+  específica, além disso pegamos o código que aquele campo temporário está agindo e colocamos nessa classe nova.
