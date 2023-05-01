@@ -42,6 +42,10 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 
    3.14. [Temporary field](#temporary-field)
 
+   3.15. [Message chains](#message-chains)
+
+   3.16. [Middle man](#middle-man)
+
 ### Refactoring, a first example
 
 - Um computador não se importa com código sujo, mas humanos, sim! Nós escrevemos códigos para seres humanos.
@@ -292,3 +296,13 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 - Quando temos uma classe que possui campos temporários que eles são setados e usados em certas situações tornam tudo
   mais difícil de entender. Para resolver esse problema, pegamos todos esses campos temporários e jogamos em uma classe
   específica, além disso pegamos o código que aquele campo temporário está agindo e colocamos nessa classe nova.
+
+#### Message chains
+
+TODO.
+
+#### Middle Man
+
+- Existem situações onde criamos classes que apenas recebem e passam a mensagem entre duas identidades. O problema
+  é que essa classe que fica no meio não faz nada além de repassar a mensagem, esse code smell é chamado de "Middle Man". Para resolver isso, nós removemos a entidade que fica no meio e fazemos com que as duas outras identidades
+  se comuniquem entre si.
