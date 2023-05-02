@@ -306,3 +306,51 @@ TODO.
 - Existem situações onde criamos classes que apenas recebem e passam a mensagem entre duas identidades. O problema
   é que essa classe que fica no meio não faz nada além de repassar a mensagem, esse code smell é chamado de "Middle Man". Para resolver isso, nós removemos a entidade que fica no meio e fazemos com que as duas outras identidades
   se comuniquem entre si.
+
+#### Inappropriate Intimacy
+
+- Existem situações onde uma classe faz a utilização de atributos e métodos privados de outra classe. Isso pode se tornar
+  um problema. Em razão disso, chamamos esse code smeel de "intimidade inapropriada".
+
+  Boas classes devem conhecer bem pouco sobre as implementações internas de outra classes, caso contrário o conceito
+  de encapsulação é ferido.
+
+- Uma possível solução é mover métodos e atributos entre as classes com o objetivo de remover a "intimidade". Se classes
+  possuem um interesse em comum, então poderia ser legal extrair em uma classe onde a intimidade delas estaria sendo 
+  preservada.
+
+#### Alternative Classes with Different Interfaces
+
+TODO.
+
+#### Incomplete Library Class
+
+TODO.
+
+#### Data Class
+
+- Data classes são classes "burras" que apenas servem para carregar dados e nada mais. Uma coisa que você precisa ter
+  cuidado é com atributos públicos. Use atributos privados e getters e setters.
+
+TODO: entender o porquê que o autor afirmou isso!
+
+#### Refused bequest
+
+- Existem situações onde temos uma subclasse que herdam métodos de outras classes que elas não precisam. Isso não pode
+  acontecer, isso significa que a hierarquia está errada.
+
+- Uma coisa que você pode fazer é jogar os campos e/ou métodos para as subclasses que precisam daquele método ao invés
+  de mantê-los na superclasse e fazer com que subclasses que não precisem daquele método sejam capazes de acessar aquele
+  método e/ou atributo.
+
+#### Comments
+
+- Se tiver um bloco de código onde possui um comentário explicando-o, extraia aquele bloco em um método e dê um nome claro
+  a esse método. Geralmente, parte do comentário se tornará o nome do método.
+
+- Se o método já está extraído e ainda assim possui um comentário, então dê um nome melhor ao método.
+
+- Se você tem um comentário que estipula um pré-requisito para dado método / bloco / instrução funcionar, use `assert`
+  para garantir aqueles pré-requisitos e não comentários.
+
+
