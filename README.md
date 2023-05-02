@@ -46,6 +46,18 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 
    3.16. [Middle man](#middle-man)
 
+   3.17. [Inappropriate Intimacy](#inappropriate-intimacy)
+
+   3.18. [Alternative Classes with Different Interfaces](#alternative-classes-with-different-interfaces)
+
+   3.19. [Incomplete Library Class](#incomplete-library-class)
+
+   3.20. [Data class](#data-class)
+
+   3.21. [Refused bequest](#refused-bequest)
+
+   3.22. [Comments](#comments)
+
 ### Refactoring, a first example
 
 - Um computador não se importa com código sujo, mas humanos, sim! Nós escrevemos códigos para seres humanos.
@@ -316,7 +328,7 @@ TODO.
   de encapsulação é ferido.
 
 - Uma possível solução é mover métodos e atributos entre as classes com o objetivo de remover a "intimidade". Se classes
-  possuem um interesse em comum, então poderia ser legal extrair em uma classe onde a intimidade delas estaria sendo 
+  possuem um interesse em comum, então poderia ser legal extrair em uma classe onde a intimidade delas estaria sendo
   preservada.
 
 #### Alternative Classes with Different Interfaces
@@ -352,5 +364,3 @@ TODO: entender o porquê que o autor afirmou isso!
 
 - Se você tem um comentário que estipula um pré-requisito para dado método / bloco / instrução funcionar, use `assert`
   para garantir aqueles pré-requisitos e não comentários.
-
-
