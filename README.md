@@ -58,6 +58,9 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 
    3.22. [Comments](#comments)
 
+4. [Building tests](#building-tests)
+5. [Toward a Catalog of Refactorings](#toward-a-catalog-of-refactorings)
+
 ### Refactoring, a first example
 
 - Um computador não se importa com código sujo, mas humanos, sim! Nós escrevemos códigos para seres humanos.
@@ -364,3 +367,25 @@ TODO: entender o porquê que o autor afirmou isso!
 
 - Se você tem um comentário que estipula um pré-requisito para dado método / bloco / instrução funcionar, use `assert`
   para garantir aqueles pré-requisitos e não comentários.
+
+### Building Tests
+
+- Se você quiser refatorar algum código, o pré-requisito mor é possuir testes sólidos.
+
+- Geralmente consertar um bug é uma tarefa simples, mas encontrar o bug é um pesadelo. Na maioria das
+  vezes, nós, programadores, passamos mais tempo debugando código do que escrevendo código em si.
+
+- Os testes irão te ajudar a identificar bugs, adicionar novas features e, sobretudo, refatorar.
+  Por que testes são tão importantes para refatoração? Na refatoração, nós não mudamos o comportamento
+  do código, apenas a sua forma para algo mais palatável para seres humanos. Dessa maneira, aqueles
+  testes que estavam presentes antes da refatoração ainda devem passar, na medida em que você mudou
+  apenas a forma, o código **deve** produzir os mesmos resultados anteriores, mas agora ele está
+  melhor para nós, humanos programadores, lermos.
+
+- A ideia é: adicionei uma feature / função / instrução, eu adiciono um teste para isso. Isso vai me
+  dar uma segurança maior na hora de refatorar o código e identificar bugs futuros.
+
+### Toward a Catalog of Refactorings
+
+- Esse capítulo apenas anuncia que os próximos capítulos será basicamente um catálogo de técnicas
+  de refatoração que o autor catalogou durante os anos de experiência que ele possui.
