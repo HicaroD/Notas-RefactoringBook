@@ -60,6 +60,7 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 
 4. [Building tests](#building-tests)
 5. [Toward a Catalog of Refactorings](#toward-a-catalog-of-refactorings)
+6. [Composing methods](#composing-methods)
 
 ### Refactoring, a first example
 
@@ -389,3 +390,41 @@ TODO: entender o porquê que o autor afirmou isso!
 
 - Esse capítulo apenas anuncia que os próximos capítulos será basicamente um catálogo de técnicas
   de refatoração que o autor catalogou durante os anos de experiência que ele possui.
+
+### Composing methods
+
+- Uma boa parte do tempo usando na refatoração é por conta de métodos longos. Métodos longos são
+  grandes problemas, na medida em que eles guardam muitas informações e, ao longo do tempo,
+  eles enterram a lógica do problema, tornando tudo difícil de entender.
+
+- A chave principal para refatorar métodos longos é basicamente extrair esses métodos longos em
+  outros métodos menores. Agora o método grande é composta por várias chamadas de funções com nomes
+  mais claros, só assim a leitura daquele antigo método longo torna-se mais fluída.
+
+- Muitas vezes nós extraímos tanto uma função que criamos um método que não ajuda de forma alguma
+  na legibilidade do código, ou seja, teria sido melhor deixar o corpo do método extraido lá na
+  função do que ter extraído para outra.
+
+- Um grande problema que temos na extração de métodos para refatorar métodos longos são as variáveis
+  temporárias, pois muitas vezes precisaremos passar as variáveis temporárias para o novo método
+  extraído. Chega um momento onde variáveis locais geram problemas, dessa maneira precisaremos
+  evitá-las. Para evitar esse problema das variáveis temporárias, nós usamos a técnica
+  **Replace Temp With Query**.
+
+  Essa técnica basicamente diz o seguinte: substitua todo o resultado de uma expressão que está
+  armazenado em uma variável para um método e chame o método no lugar da variável temporária. Só
+  assim, eliminamos a necessidade de uma variável temporária e o nome do método faz o papel dela.
+
+- Quando uma variável temporária é usada em mais de um lugar ao longo do código, você deve separar
+  essas variáveis. Assim como uma função, classe, método e etc, uma variável deve ter apenas uma
+  responsabilidade. Após separar essas responsabilidades, você é capaz de aplicar a técnica
+  **Replace Temp With Query** para poder remover as variáveis temporárias.
+
+- Tem algumas situações onde temos várias variáveis locais e elas estão tão correlacionadas que você
+  não consegue separá-las usando extração de métodos. Uma coisa que você pode fazer para resolver esse
+  problema é usar a técnica **Replace Method with Method Object**, ou seja, pegar aquelas variáveis
+  locais que estão bem correlacionadas, criar uma classe onde os atributos dela serão as variáveis
+  locais.
+
+- Se você viu que o algoritmo interno de uma função pode ser melhorado, use a técnica
+  **Substitute Algorithm**.
