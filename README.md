@@ -428,3 +428,12 @@ TODO: entender o porquê que o autor afirmou isso!
 
 - Se você viu que o algoritmo interno de uma função pode ser melhorado, use a técnica
   **Substitute Algorithm**.
+
+- Mais uma vez, quando começar a extrair funções de um outra função grande, preste atenção na
+  quantidade de parâmetros e nas variáveis locais. De preferência, não deve ter nenhuma variável
+  local, nem parâmetros, contudo isso é quase impossível. Logo, dê seu melhor para ter a menor
+  quantidade disso possível.
+
+- Existem situações onde o corpo de um método é mais claro do que o próprio nome que você deu para
+  função. Quando essa situação ocorrer, remova a função e use o corpo da função dentro do
+  código ao invés da chamada de função. Essa técnica é chamada de **Inline method**.
