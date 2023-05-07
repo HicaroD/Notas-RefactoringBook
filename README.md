@@ -437,3 +437,17 @@ TODO: entender o porquê que o autor afirmou isso!
 - Existem situações onde o corpo de um método é mais claro do que o próprio nome que você deu para
   função. Quando essa situação ocorrer, remova a função e use o corpo da função dentro do
   código ao invés da chamada de função. Essa técnica é chamada de **Inline method**.
+
+- Quando temos o uso de uma variável temporária e essa variável temporária segura o resultado de
+  alguma expressão, podemos usar **Replace Temp With Query** para refatorar e remover essa variável
+  temporária.
+
+  A ideia desa técnica é remover a variável temporária criando um método que retorna o resultado
+  daquela expressão e usa a chamada daquele método no lugar da variável temporária. Só assim, a
+  variável temporária seria eliminada.
+
+  A ideia por trás de remover variáveis temporárias e locais é de evitar que elas apareçam
+  em mais de um lugar no código, como em outro método ou classe. Quando transformamos em um
+  método, toda a classe terá acesso àquele método e não precisamos criar essas variáveis em
+  outros métodos. Vale ressaltar que **Replace Temp With Query** é um passo vital antes de
+  usar a técnica de **Extract Method**.
