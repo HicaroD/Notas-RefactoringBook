@@ -451,3 +451,13 @@ TODO: entender o porquê que o autor afirmou isso!
   método, toda a classe terá acesso àquele método e não precisamos criar essas variáveis em
   outros métodos. Vale ressaltar que **Replace Temp With Query** é um passo vital antes de
   usar a técnica de **Extract Method**.
+
+- Temos situações onde existe uma expressão muito complexa dentro de um if, por exemplo. Uma forma
+  de resolver esse problema é colocar essa expressão dentro de uma variável que explica o propósito
+  daquela expressão. Essa técnica é chamada de **Introduce Explaining Variable**. Eu pessoalmente
+  confesso que prefiro usar **Extract Method**, na medida em que criar uma variável nova é mais uma
+  variável temporária que futuramente poderia ser um método com um nome explicativo, o que é bem
+  melhor do que uma variável.
+
+  Só que existem situações onde fica difícil de extrair um método e deixar aquela expressão complexa
+  é algo ruim, dessa maneira é melhor usar a técnica **Introduce Explaining Variable**.
