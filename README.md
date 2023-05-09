@@ -461,3 +461,11 @@ TODO: entender o porquê que o autor afirmou isso!
 
   Só que existem situações onde fica difícil de extrair um método e deixar aquela expressão complexa
   é algo ruim, dessa maneira é melhor usar a técnica **Introduce Explaining Variable**.
+
+- Use variáveis temporárias para poder receber os valores dos parâmetros, de forma que você não
+  mude o valor original do objeto.
+
+- Existem situações onde você tem um método longo que você não consegue usar a técnica **Extract Method**
+  por conta da quantidade de variáveis locais. Uma coisa que você pode fazer é pegar aquele método
+  transformar em um método de outra classe e aquelas variáveis temporárias se tornariam atributos
+  da classe. Essa técnica é chamada de **Replace Method with Method Object**.
