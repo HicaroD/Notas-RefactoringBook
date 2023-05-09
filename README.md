@@ -61,6 +61,7 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 4. [Building tests](#building-tests)
 5. [Toward a Catalog of Refactorings](#toward-a-catalog-of-refactorings)
 6. [Composing methods](#composing-methods)
+7. [Moving Features Between Objects](#moving-features-between-objects)
 
 ### Refactoring, a first example
 
@@ -469,3 +470,8 @@ TODO: entender o porquê que o autor afirmou isso!
   por conta da quantidade de variáveis locais. Uma coisa que você pode fazer é pegar aquele método
   transformar em um método de outra classe e aquelas variáveis temporárias se tornariam atributos
   da classe. Essa técnica é chamada de **Replace Method with Method Object**.
+
+- Existe uma técnica chamada **Substitute Algorithm** onde você substitui o corpo de um método por
+  um algoritmo que é mais claro.
+
+### Moving Features Between Objects
