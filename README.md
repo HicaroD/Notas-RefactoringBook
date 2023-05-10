@@ -475,3 +475,17 @@ TODO: entender o porquê que o autor afirmou isso!
   um algoritmo que é mais claro.
 
 ### Moving Features Between Objects
+
+- Uma das principais decisões no design de software orientado a objetos é saber onde colocar as responsabilidades.
+  Na maioria das vezes, de primeira, a classe fica cheia de responsabilidades com métodos que fazem coisas diferentes
+  que não deveriam estar naquela classe. Esses sintomas dificilmente são identificados de primeira, mas com
+  refatoração, isso pode ser resolvido.
+
+- A solução mais simples para remover excesso de responsabilidades é usar **Move Field** e **Move Method** para poder
+  mover aqueles métodos e fields da classe que não deveriam estar lá, pois a classe não deveria ser responsável por
+  aquela funcionalidade. Muitas vezes precisamos criar outra classe para gerenciar aquela funcionalidade, outras
+  vezes já temos uma classe que aquela funcionalidade é apropriada.
+
+- Uma coisa legal para identificar esse tipo de sintoma mencionado acima é observar os métodos da classe e ver se ele
+  está usando mais atributos / métodos de outras classes do que métodos da própria classe que ele vive. Isso é um
+  code smell chamado de **Feature Envy** e deve ser evitado.
