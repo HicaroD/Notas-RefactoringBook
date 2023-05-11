@@ -489,3 +489,14 @@ TODO: entender o porquê que o autor afirmou isso!
 - Uma coisa legal para identificar esse tipo de sintoma mencionado acima é observar os métodos da classe e ver se ele
   está usando mais atributos / métodos de outras classes do que métodos da própria classe que ele vive. Isso é um
   code smell chamado de **Feature Envy** e deve ser evitado.
+
+- Existem situações onde uma field de uma classe é usada mais por outra classe do que pela própria. Nessas
+  situações a ideia é mover a field para a classe que mais usa aquela field. Ela com certeza estará em um lugar
+  melhor.
+
+- Muitas vezes você tem uma classe que está fazendo o trabalho de duas ou mais. Nessas situações a gente extrai
+  novas classes para separar as responsabilidades.
+
+- Essa situação acima ocorre bastante e nós extraímos diversas classes, contudo muitas vezes extraímos classes
+  que não fazem o suficiente para serem dignas de uma classe própria e os métodos / fields poderiam
+  ser colocados em uma classe já existente. Essa técnica é chamada de **Inline Class**.
