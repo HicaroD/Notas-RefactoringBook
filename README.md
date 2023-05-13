@@ -500,3 +500,13 @@ TODO: entender o porquê que o autor afirmou isso!
 - Essa situação acima ocorre bastante e nós extraímos diversas classes, contudo muitas vezes extraímos classes
   que não fazem o suficiente para serem dignas de uma classe própria e os métodos / fields poderiam
   ser colocados em uma classe já existente. Essa técnica é chamada de **Inline Class**.
+
+- Existem situações onde você tem um valor numérico que está sendo usado em vários locais. Pode ser que, inicialmente,
+  você saiba exatamente o que aquele valor faz, contudo quando você voltar para esse código dias depois, provavelmente
+  você terá esquecido o que aquele valor. Dessa maneira, a ideia é que você substitua aquele valor por uma constante
+  simbólica, dando um nome preciso e claro para aquele valor numérico. Só assim, todos que lerem o seu código sabem
+  o propósito daquele valor.
+
+- Existem situações onde você tem um determinado tipo de dado que precisa de funcionalidades adicionais. Para dar
+  essas funcionalidades adicionais, você pode criar uma classe que contém aquele dado e criar métodos que agem sobre
+  aquele dado.
