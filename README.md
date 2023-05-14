@@ -62,6 +62,7 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 5. [Toward a Catalog of Refactorings](#toward-a-catalog-of-refactorings)
 6. [Composing methods](#composing-methods)
 7. [Moving Features Between Objects](#moving-features-between-objects)
+8. [Organizing data](#organizing-data)
 
 ### Refactoring, a first example
 
@@ -501,6 +502,8 @@ TODO: entender o porquê que o autor afirmou isso!
   que não fazem o suficiente para serem dignas de uma classe própria e os métodos / fields poderiam
   ser colocados em uma classe já existente. Essa técnica é chamada de **Inline Class**.
 
+### Organizing data
+
 - Existem situações onde você tem um valor numérico que está sendo usado em vários locais. Pode ser que, inicialmente,
   você saiba exatamente o que aquele valor faz, contudo quando você voltar para esse código dias depois, provavelmente
   você terá esquecido o que aquele valor. Dessa maneira, a ideia é que você substitua aquele valor por uma constante
@@ -510,3 +513,13 @@ TODO: entender o porquê que o autor afirmou isso!
 - Existem situações onde você tem um determinado tipo de dado que precisa de funcionalidades adicionais. Para dar
   essas funcionalidades adicionais, você pode criar uma classe que contém aquele dado e criar métodos que agem sobre
   aquele dado.
+
+- Existem situações onde criamos um array para armazenar dados que fazem sentido juntos, contudo isso pode gerar uma
+  confusão. Uma coisa legal a se fazer é criar uma classe e os dados do array são atributos dessa classe, só assim
+  daríamos mais sentido àqueles dados armazenados no array.
+
+- Algo bom a se fazer é encapsular coleções. Ao invés de retornarmos uma coleção de forma que o usuário possa alterar,
+  você pode retornar uma coleção read-only e expor métodos que possam editar aquela coleção. Essa técnica é chamada
+  de **Encapsulate Collection**. Esse encapsulamento não permitirá que o cliente altere aquela coleção sem saber
+  o que ele está fazendo. Além disso, você pode adicionar regras de alteração nos métodos, só assim você pode gerenciar
+  corretamente o que pode entrar e sair daquela coleção.
