@@ -63,6 +63,7 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 6. [Composing methods](#composing-methods)
 7. [Moving Features Between Objects](#moving-features-between-objects)
 8. [Organizing data](#organizing-data)
+9. [Simplifying Conditional Expressions](#simplifying-conditional-expressions)
 
 ### Refactoring, a first example
 
@@ -522,4 +523,10 @@ TODO: entender o porquê que o autor afirmou isso!
   você pode retornar uma coleção read-only e expor métodos que possam editar aquela coleção. Essa técnica é chamada
   de **Encapsulate Collection**. Esse encapsulamento não permitirá que o cliente altere aquela coleção sem saber
   o que ele está fazendo. Além disso, você pode adicionar regras de alteração nos métodos, só assim você pode gerenciar
-  corretamente o que pode entrar e sair daquela coleção.
+  corretamente o que pode entrar e sair daquela coleção. A mesma coisa serve para outros campos em uma classe, um
+  campo público faz com que outros objetos alterem seu código da maneira que eles bem quiserem, caso a gente
+  torne-o privado e criar métodos (getters e setters), a gente está encapsulando a field e tornando mais segura
+  a alteração desses dados, sobretudo se você adicionar regras de alteração nos setters. Essa técnica é chamada
+  de **Encapsulate Field**.
+
+### Simplifying Conditional Expressions
