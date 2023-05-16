@@ -64,6 +64,7 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 7. [Moving Features Between Objects](#moving-features-between-objects)
 8. [Organizing data](#organizing-data)
 9. [Simplifying Conditional Expressions](#simplifying-conditional-expressions)
+10. [Making Method Calls Simpler](#making-method-calls-simpler)
 
 ### Refactoring, a first example
 
@@ -530,3 +531,34 @@ TODO: entender o porquê que o autor afirmou isso!
   de **Encapsulate Field**.
 
 ### Simplifying Conditional Expressions
+
+- A técnica principal para refatorar expressões condicionais é usar **Decompose Conditional**. Existem outras técnicas,
+  como **Introduce Null Object** com polimorfismo para evitar checagem por objetos nulos.
+
+- Falando especificamente sobre **Decompose Conditional**, essa técnica consiste em separar expressões condicionais
+  complexas em métodos que deixam claro o que aquela condição está checando. Muito semelhante a um **Extract Method**,
+  mas para condições.
+
+- Muitas vezes você tem uma sequência de condições que geram o mesmo resultado, uma coisa que você pode fazer é pegar
+  essa sequência de condições em um método só e usar apenas uma condição com aquele método.
+
+- Existem situações onde você tem o mesmo fragmento de código em todas as condições. Uma coisa que você pode fazer é
+  retirar aquele fragmento de código da condição e colocar depois das condições, isso funciona porque o fragmento de
+  código está em todas as condições, logo ele será executado em todas as condições. Graças a isso, é melhor colocar
+  depois das condições, evitando repetições desnecessárias.
+
+- Existe muitas situações onde podemos substituir condições por polimorfismo.
+
+- É extremamente chato e repetitivo checar por objetos nulos. Quase sempre existirá uma repetição desnecessária. Par
+  resolver esse problema, podemos usar a técnica **Introduce Null Object**. Essa técnica consiste em basicamente criar
+  uma classe que herda da classe que você estava checando por objetos nulos e essa nova classe vai representar um
+  objeto nulo daquela outra classe, dessa maneira você não precisa checar se o objeto é nulo, pois os métodos da
+  classe nula não irão fazer nada, você pode chamá-los e nenhum efeito será causado.
+
+- As vezes criamos comentários para poder estipular pré-requisitos e dizer que "certa função não pode receber x valor,
+  pois dará problema". Ao invés desse comentário, podemos criar um "assert" para garantir esse pré-requisito, é melhor
+  do que criar um comentário, que não terá efeito algum. Essa técnica é chamada de **Introduce Assert**.
+
+  Além disso, os asserts podem ser removidos no futuro após o código ser testado de forma apropriada.
+
+### Making Method Calls Simpler
