@@ -562,3 +562,15 @@ TODO: entender o porquê que o autor afirmou isso!
   Além disso, os asserts podem ser removidos no futuro após o código ser testado de forma apropriada.
 
 ### Making Method Calls Simpler
+
+- Uma das técnicas mais simples para tornar uma chamada de método mais simples é renomear o nome desse método para
+  algo mais claro a respeito do que ele está fazendo.
+
+- Existem situações onde temos uma longa lista de parâmetros de um método. Uma possível refatoração, no caso de você estar
+  recebendo uma certa quantidade de atributos de um mesmo objeto, é justamente passar o objeto inteiro. Isso iria
+  ajudar a reduzir a quantidade de parâmetros. Essa técnica é chamada de **Preserve the Whole Object**. Caso
+  esse objeto não exista, então você pode criar uma classe que representa os parâmetros passados, essa técnica é
+  chamada de **Introduce Parameter Object**.
+
+- Error codes nem sempre são uma boa ideia, pois muitas vezes eles se tornam confusos para tratar. Uma coisa que você
+  pode fazer é substituir esse error codes por exceções.
