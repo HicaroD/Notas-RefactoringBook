@@ -65,6 +65,7 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 8. [Organizing data](#organizing-data)
 9. [Simplifying Conditional Expressions](#simplifying-conditional-expressions)
 10. [Making Method Calls Simpler](#making-method-calls-simpler)
+11. [Dealing with Generalization](#dealing-with-generalization)
 
 ### Refactoring, a first example
 
@@ -574,3 +575,11 @@ TODO: entender o porquê que o autor afirmou isso!
 
 - Error codes nem sempre são uma boa ideia, pois muitas vezes eles se tornam confusos para tratar. Uma coisa que você
   pode fazer é substituir esse error codes por exceções.
+
+- Quando o nome do método não revela seu próposito, mude o nome do método.
+
+- Quando você tem uma certa quantidade de parâmetros que naturalmente vão juntos, você pode criar uma classe que leva
+  todos juntos, só assim podemos substituir o parâmetro por um objeto e diminuir a quantidade de parâmetros, dessa maneira
+  podemos simplificar a chamada do método no futuro.
+
+### Dealing with Generalization
