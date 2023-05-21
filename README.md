@@ -66,6 +66,7 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 9. [Simplifying Conditional Expressions](#simplifying-conditional-expressions)
 10. [Making Method Calls Simpler](#making-method-calls-simpler)
 11. [Dealing with Generalization](#dealing-with-generalization)
+12. [Big Refactorings](#big-refactorings)
 
 ### Refactoring, a first example
 
@@ -583,3 +584,27 @@ TODO: entender o porquê que o autor afirmou isso!
   podemos simplificar a chamada do método no futuro.
 
 ### Dealing with Generalization
+
+- Quando duas ou mais subclasses possuem o mesmo campo, podemos mover essa field para super classe (parente), só
+  assim evitamos a repetição de fields. A mesma coisa serve para métodos. Mas, por quê? Apesar de que você mantenha
+  as fields e métodos, eles se tornarão suscetíveis a erros no futuro, pois você precisa alterar em mais de um lugar
+  e possivelmente irá esquecer de alterar em todos os lugares, especialmente se você tiver muitas subclasses.
+
+- Existem situações também onde você tem um método na superclasse que não é usada por todas as subclasses, nessa
+  situação, a ideia é que agora você "desça o método" (ou field) para as subclasses. Isso porque não queremos
+  expor métodos / fields a classes onde não é relevante.
+
+- Quando temos duas ou mais classes que você possuem características semelhantes, podemos extrair uma super classe
+  e fazer com que essas classes herdem da super classe. Só assim, podemos aplicar os dois métodos de refatoração
+  mencionados acima para poder deixar essas classes e subclasses mais legíveis.
+
+- Quando diversas classes usam o mesmo subconjunto de métodos, podemos extrair uma interface e fazer com que elas
+  implementem essa interface.
+
+- Cuidado para não adicionar mais classes só por adicionar e achar que está refatorando o código. Quando uma superclasse
+  e subclasse não são tão diferentes, então é melhor você mesclar as duas e ter apenas uma classe.
+
+- Você pode usar o **Template Method** em situações onde temos passos semelhantes de um algoritmo, mas algumas etapas
+  são diferentes.
+
+### Big Refactorings
