@@ -67,7 +67,6 @@ faço comentários baseado em experiência própria e outros livros que li sobre
 10. [Making Method Calls Simpler](#making-method-calls-simpler)
 11. [Dealing with Generalization](#dealing-with-generalization)
 12. [Big Refactorings](#big-refactorings)
-13. [Refactoring, Reuse, and Reality](#refactoring-reuse-and-reality)
 
 ### Refactoring, a first example
 
@@ -614,5 +613,3 @@ TODO: entender o porquê que o autor afirmou isso!
   da coisa, que é o software.
 
 TODO: entender mais esse capítulo
-
-### Refactoring, Reuse, and Reality
